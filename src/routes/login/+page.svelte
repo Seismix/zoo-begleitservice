@@ -3,8 +3,8 @@
     let activeTab = $state<"login" | "register">("login");
 </script>
 
-<div class="flex items-center justify-center min-h-screen p-8">
-    <div class="bg-white rounded-md shadow-lg p-8 w-full max-w-md">
+<div class="flex items-start justify-center min-h-screen p-8 transition-transform duration-300" >
+    <div class="bg-white rounded-md shadow-lg p-8 w-full max-w-md" >
         <div class="flex justify-center border-b-2 border-gray-300 mb-6">
             <button
                 class="py-2 px-6 font-bold transition duration-300 border-b-4 {activeTab ===
@@ -15,7 +15,7 @@
             >
                 Login
             </button>
-            <button
+            <button 
                 class="py-2 px-6 font-bold transition duration-300 border-b-4 {activeTab ===
                 'register'
                     ? 'text-green-500 border-green-500'
@@ -25,7 +25,7 @@
                 Register
             </button>
         </div>
-        <div class="h-[400px] overflow-y-auto transition-all duration-300">
+        <div class="overflow-y-auto transition-all duration-1000">
             {#if activeTab === "login"}
                 <div>
                     <h2

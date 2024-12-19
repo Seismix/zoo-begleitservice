@@ -32,10 +32,10 @@
 			</ul>
 		</div>
 	</div>
-	<div class="bg-gradient-to-r from-slate-900 to-stone-800">
+	<div class="bg-gradient-to-br from-[#D9A84E] via-[#967B3E] to-[#5A4A2E]">
 		{#key data.url}
 			<div
-				class=" md:px-12 lg:px-32 bg-fixed min-h-[calc(100vh-6rem)] grid bg-gradient-to-r from-slate-900 to-stone-800 overflow-hidden py-4"
+				class=" md:px-12 lg:px-32 bg-fixed min-h-[calc(100vh-6rem)] grid bg-gradient-to-br from-[#B4863D] via-[#7A6334] to-[#463620] overflow-hidden py-4"
 				style="display: flex; flex-direction: column; justify-content: flex-start; align-items: stretch;"
 				in:fade={{ duration: 500, delay: 500 }}
 				out:fade={{ duration: 500 }}
