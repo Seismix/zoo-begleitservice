@@ -6,7 +6,6 @@
       <a href="kontakt" class="bg-white text-green-500 py-3 px-6 rounded shadow hover:bg-yellow-300">Kontakt aufnehmen</a>
     </div>
   </section>
-
   <!-- Services Section -->
   <section id="services" class="py-16 bg-white text-[#0f172a]">
     <div class="container mx-auto text-center">
