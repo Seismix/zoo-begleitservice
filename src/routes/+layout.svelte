@@ -20,7 +20,7 @@
 				<li
 					class="hover:scale-125 transform transition duration-500 flex place-items-center border-x-2 border-white px-4"
 				>
-					<a href="/about" class="rounded">Login</a>
+					<a href="/login" class="rounded">Login</a>
 				</li>
 				<li
 					class="hover:scale-125 transform transition duration-500 flex place-items-center border-x-2 border-white px-4"
