@@ -1,9 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 	import { fade } from 'svelte/transition';
-
 	let { children, data } = $props<{ children: any, data: { url: string } }>();
-
 </script>
 
 <div class="flex flex-col justify-between min-h-screen">
@@ -61,4 +59,3 @@
 		</div>
 	</div>
 </div>
-
