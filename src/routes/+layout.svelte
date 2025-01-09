@@ -25,9 +25,19 @@
 				<li
 					class="hover:scale-125 transform transition duration-500 flex place-items-center border-x-2 border-white px-4"
 				>
-					<a href="/projects" class="rounded hover:scale-110 transform transition duration-500"
+					<a href="/dashboard/request" class="rounded hover:scale-110 transform transition duration-500"
 						>Buchen</a
 					>
+				</li>
+				<li
+					class="hover:scale-125 transform transition duration-500 flex place-items-center border-x-2 border-white px-4"
+				>
+					<a href="/dashboard" class="rounded">Dashboard</a>
+				</li>
+				<li
+					class="hover:scale-125 transform transition duration-500 flex place-items-center border-x-2 border-white px-4"
+				>
+					<a href="/logout" class="rounded">Logout</a>
 				</li>
 			</ul>
 		</div>
