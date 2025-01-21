@@ -3,7 +3,7 @@
       <div class="container mx-auto text-center">
         <h2 class="text-4xl font-bold mb-4">Begleitung für unvergessliche Zoo-Erlebnisse</h2>
         <p class="text-lg mb-8">Wir bieten liebevolle Begleitung für ältere oder behinderte Menschen, damit sie die Wunder des Zoos in vollen Zügen genießen können.</p>
-        <a href="kontakt" class="bg-white text-green-500 py-3 px-6 rounded shadow hover:bg-yellow-300">Kontakt aufnehmen</a>
+        <a href="contact" class="bg-white text-green-500 py-3 px-6 rounded shadow hover:bg-yellow-300">Kontakt aufnehmen</a>
       </div>
     </section>
     <!-- Services Section -->
