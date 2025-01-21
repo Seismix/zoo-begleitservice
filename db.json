@@ -1,37 +1,58 @@
 {
-    "users": [
-        {
-            "userId": 1,
-            "email": "user1@example.com",
-            "password": "1234",
-            "address": "123 Random St, Anytown, USA",
-            "telephone": "666-1234"
-        }
-    ],
-    "orders": [
-        {
-            "userId": 1,
-            "date": "2023-10-01",
-            "time": "10:00",
-            "groupSize": 5,
-            "favouriteAnimals": "Antarktis",
-            "status": "pending"
-        },
-        {
-            "userId": 1,
-            "date": "2023-10-02",
-            "time": "14:00",
-            "groupSize": 3,
-            "favouriteAnimals": "Aquarium",
-            "status": "approved"
-        },
-        {
-            "userId": 1,
-            "date": "2023-10-03",
-            "time": "09:00",
-            "groupSize": 10,
-            "favouriteAnimals": "Elefantenpark",
-            "status": "denied"
-        }
-    ]
+  "users": [
+    {
+      "userId": 1,
+      "email": "user1@example.com",
+      "password": "1234",
+      "address": "123 Random St, Anytown, USA",
+      "telephone": "666-1234"
+    }
+  ],
+  "orders": [
+    {
+      "orderId": 1,
+      "userId": 1,
+      "date": "2023-10-01",
+      "time": "10:00",
+      "groupSize": 5,
+      "favouriteAnimals": "Antarktis",
+      "status": "pending"
+    },
+    {
+      "orderId": 2,
+      "userId": 1,
+      "date": "2023-10-02",
+      "time": "14:00",
+      "groupSize": 3,
+      "favouriteAnimals": "Aquarium",
+      "status": "approved"
+    },
+    {
+      "orderId": 3,
+      "userId": 1,
+      "date": "2023-10-03",
+      "time": "09:00",
+      "groupSize": 10,
+      "favouriteAnimals": "Elefantenpark",
+      "status": "denied"
+    },
+    {
+      "orderId": 4,
+      "userId": 1,
+      "date": "2025-01-23",
+      "time": "08:05",
+      "groupSize": "null",
+      "favouriteAnimals": "null",
+      "status": "pending"
+    },
+    {
+      "id": 5,
+      "userId": 1,
+      "date": "2025-01-29",
+      "time": "10:01",
+      "groupSize": "null",
+      "favouriteAnimals": "null",
+      "status": "pending"
+    }
+  ]
 }
