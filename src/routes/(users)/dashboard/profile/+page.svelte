@@ -10,13 +10,13 @@
     <section id="profile" class="bg-white text-[#0f172a] p-20 rounded-b-md">
         <div class="container mx-auto text-center">
             <h2 class="text-3xl font-bold mb-8">Profil</h2>
-            <p class="mb-4">Hallo {user.email}, Sie können hier Ihre Daten ändern.</p>
+            <p class="mb-4 text-lg text-gray-700">Hallo <span class="font-semibold">{user.email}</span>, Sie können hier Ihre Daten ändern.</p>
             {#if form?.success}
             <!-- this message is ephemeral; it exists because the page was rendered in
 	       response to a form submission. it will vanish if the user reloads -->
             <p>Updated profile for {user.email}</p>
         {/if}
-            <form class="grid grid-cols-1 gap-8" method="POST">
+            <form class="grid grid-cols-1 gap-8 w-1/2 mx-auto" method="POST">
                 <div class="p-4 border rounded-md">
                     <label for="email" class="block text-left mb-2"
                         ><strong>Email:</strong></label
@@ -57,7 +57,7 @@
                 </div>
                 <button
                     type="submit"
-                    class="w-full p-2 bg-blue-500 text-white rounded-md"
+                    class="w-full p-2 bg-green-500 hover:bg-green-600 rounded-md"
                     >Save</button
                 >
             </form>

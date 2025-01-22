@@ -19,7 +19,7 @@
 </script>
 
 <div class="h-[calc(100vh-10rem)] gap-4 overflow-auto p-4 rounded-md">
-    <section id="orders" class="bg-white text-[#0f172a] p-20 rounded-b-md">
+    <section id="orders" class="bg-white text-[#0f172a] p-20 rounded-md">
         <div class="container mx-auto text-center">
             <h2 class="text-3xl font-bold mb-8">Bestellungen (Admin)</h2>
             <div class="flex justify-center border-b-2 border-gray-300 mb-6">

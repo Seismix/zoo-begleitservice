@@ -4,18 +4,9 @@
 
 <div class="h-[calc(100vh-10rem)] gap-4 overflow-auto p-4 rounded-md">
     <!-- Services Section -->
-    <section id="services" class="bg-white text-[#0f172a] p-20 rounded-b-md">
-        <div class="container mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-8">Begleitservice buchen</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <form action=""></form>
-            </div>
-        </div>
-    </section>
-
     <section
         id="request-form"
-        class="bg-white text-[#0f172a] p-20 rounded-b-md"
+        class="bg-white text-[#0f172a] p-20 rounded-md"
     >
         {#if form?.success}
             <!-- this message is ephemeral; it exists because the page was rendered in
@@ -25,7 +16,7 @@
 
         <div class="container mx-auto text-center">
             <h2 class="text-3xl font-bold mb-8">Zoo Tour Anfrageformular</h2>
-            <form class="grid grid-cols-1 gap-4" method="POST">
+            <form class="grid grid-cols-1 gap-4 w-1/2 mx-auto" method="POST">
                 <div>
                     <label for="date" class="block text-left mb-2">Datum:</label
                     >
@@ -82,7 +73,7 @@
                 <div>
                     <button
                         type="submit"
-                        class="w-full bg-blue-500 text-white p-2 rounded-md"
+                        class="w-full bg-green-500 hover:bg-green-600 text-white p-2 rounded-md"
                         >Anfrage absenden</button
                     >
                 </div>
