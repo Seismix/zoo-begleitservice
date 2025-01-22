@@ -11,19 +11,18 @@ export async function fetchOrders(): Promise<any[]> {
         throw error;
     }
 }
-export async function fetchUserById(userId: number): Promise<any> {
+export async function fetchUserById(id: string): Promise<any> {
     try {
-        const response = await fetch(
-            `http://localhost:3001/users?userId=${userId}`
-        );
+        const response = await fetch(`http://localhost:3001/users/${id}`);
         if (!response.ok) {
             throw new Error(`Failed to fetch user: ${response.statusText}`);
         }
         const data = await response.json();
+
         if (data.length === 0) {
-            throw new Error(`User with id ${userId} not found`);
+            throw new Error(`User with id ${id} not found`);
         }
-        return data[0]; // Return the first user object from the array
+        return data; // Return the first user object from the array
     } catch (error) {
         console.error("Error fetching user:", error);
         throw error;
@@ -31,7 +30,7 @@ export async function fetchUserById(userId: number): Promise<any> {
 }
 
 export async function createOrder(
-    userId: number,
+    id: string,
     order: {
         date: string;
         time: string;
@@ -40,54 +39,28 @@ export async function createOrder(
         status: string;
     }
 ): Promise<any> {
-    try {
-        // Fetch all orders for the user
-        const response = await fetch(
-            `http://localhost:3001/orders?userId=${userId}`
-        );
-        if (!response.ok) {
-            throw new Error(
-                `Failed to fetch user orders: ${response.statusText}`
-            );
-        }
-
-        const userOrders = await response.json();
-
-        // Calculate the new order ID
-        const newOrderId = userOrders.length > 0 ? userOrders.length + 1 : 1;
-
-        // Create the new order object with the generated ID
-        const newOrder = {
-            id: newOrderId,
-            userId,
+    const newOrder = await fetch("http://localhost:3001/orders", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
             ...order,
-        };
+            userId: id,
+        }),
+    });
 
-        // Send the new order to the server
-        const createResponse = await fetch("http://localhost:3001/orders", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(newOrder),
-        });
-
-        if (!createResponse.ok) {
-            throw new Error(
-                `Failed to create order: ${createResponse.statusText}`
-            );
-        }
-
-        const data = await createResponse.json();
-        return data;
-    } catch (error) {
-        console.error("Error creating order:", error);
-        throw error;
+    if (!newOrder.ok) {
+        throw new Error(`Failed to create order: ${newOrder.statusText}`);
     }
+
+    const data = await newOrder.json();
+
+    return data;
 }
 
 export async function updateUserDetails(
-    userId: number,
+    userId: string,
     updatedDetails: {
         email?: string;
         telephone?: string;
@@ -96,7 +69,7 @@ export async function updateUserDetails(
 ): Promise<any> {
     try {
         // Fetch the current user details using fetchUserById function
-        const currentUser = await fetchUserById(userId);        
+        const currentUser = await fetchUserById(userId);
 
         // Update only the changed values
         const updatedUser = {
@@ -124,8 +97,6 @@ export async function updateUserDetails(
 
         const updatedData = await updateResponse.json();
 
-        console.log("Updated user details:", updatedData);
-        
         return updatedData;
     } catch (error) {
         console.error("Error updating user details:", error);

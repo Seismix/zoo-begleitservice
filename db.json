@@ -1,54 +1,49 @@
 {
-    "users": [
-        {
-            "userId": 1,
-            "email": "user11@example.com",
-            "password": "1234",
-            "address": "123 Random St, Anytown, USA",
-            "telephone": "666-1234",
-            "id": "dac2"
-        }
-    ],
-    "orders": [
-        {
-            "orderId": 1,
-            "userId": 1,
-            "date": "2023-10-01",
-            "time": "10:00",
-            "groupSize": 5,
-            "favouriteAnimals": "Antarktis",
-            "status": "pending",
-            "id": "a287"
-        },
-        {
-            "orderId": 2,
-            "userId": 1,
-            "date": "2023-10-02",
-            "time": "14:00",
-            "groupSize": 3,
-            "favouriteAnimals": "Aquarium",
-            "status": "approved",
-            "id": "332c"
-        },
-        {
-            "orderId": 3,
-            "userId": 1,
-            "date": "2023-10-03",
-            "time": "09:00",
-            "groupSize": 10,
-            "favouriteAnimals": "Elefantenpark",
-            "status": "denied",
-            "id": "b1fb"
-        },
-        {
-            "orderId": 4,
-            "userId": 1,
-            "date": "2025-01-23",
-            "time": "08:05",
-            "groupSize": "null",
-            "favouriteAnimals": "null",
-            "status": "pending",
-            "id": "049c"
-        }
-    ]
+  "users": [
+    {
+      "email": "user1@example.com",
+      "password": "1234",
+      "address": "123 Random St, Anytown, USA",
+      "telephone": "666-1234",
+      "id": "dac2"
+    }
+  ],
+  "orders": [
+    {
+      "userId": "dac2",
+      "date": "2023-10-01",
+      "time": "10:00",
+      "groupSize": 5,
+      "favouriteAnimals": "Antarktis",
+      "status": "pending",
+      "id": "a287"
+    },
+    {
+      "userId": "dac2",
+      "date": "2023-10-02",
+      "time": "14:00",
+      "groupSize": 3,
+      "favouriteAnimals": "Aquarium",
+      "status": "approved",
+      "id": "332c"
+    },
+    {
+      "userId": "dac2",
+      "date": "2023-10-03",
+      "time": "09:00",
+      "groupSize": 10,
+      "favouriteAnimals": "Elefantenpark",
+      "status": "denied",
+      "id": "b1fb"
+    },
+    {
+      "id": "a92c",
+      "date": "2025-01-23",
+      "time": "05:16",
+      "groupSize": "69",
+      "favouriteAnimals": "streichelzoo",
+      "status": "pending",
+      "userId": "dac2"
+    }
+  ]
 }

@@ -2,8 +2,6 @@
     let { data, form} = $props();
 
     const user = data.user;
-    console.log(user);
-    
 </script>
 
 <!-- ...existing code... -->

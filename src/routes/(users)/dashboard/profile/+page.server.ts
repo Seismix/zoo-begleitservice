@@ -2,7 +2,8 @@ import { fetchUserById, updateUserDetails } from "$lib/db";
 import type { Actions, PageServerLoad } from "./$types";
 
 export const load: PageServerLoad = async () => {
-    const user = await fetchUserById(1);
+    const user = await fetchUserById("dac2");
+
     return {
         user: user,
     };
@@ -16,7 +17,7 @@ export const actions = {
         const telephone = data.get("telephone")?.toString() || "";
         const address = data.get("address")?.toString() || "";
 
-        await updateUserDetails(1, {
+        await updateUserDetails("dac2", {
             email,
             telephone,
             address,
