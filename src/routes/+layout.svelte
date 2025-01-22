@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 	import { fade } from 'svelte/transition';
-	let { children, data } = $props<{ children: any, data: { url: string } }>();
+	let { children, data } = $props<{ children: any, data: { url: string } }>();	
 </script>
 
 <div class="flex flex-col justify-between min-h-screen">
@@ -42,7 +42,9 @@
 				<li
 					class="hover:scale-125 transform transition duration-500 flex place-items-center border-x-2 border-white px-4"
 				>
-					<a href="/logout" class="rounded">Logout</a>
+					<form action="/logout" method="post">
+						<button type="submit" class="rounded">Logout</button>
+					</form>
 				</li>
 			</ul>
 		</div>

@@ -1,9 +1,54 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "email": "user@example.com",
-            "password": "1234"
-        }
-    ]
+  "users": [
+    {
+      "email": "user1@example.com",
+      "password": "1234",
+      "address": "123 Random St, Anytown, USA",
+      "telephone": "666-1234",
+      "id": "dac2"
+    },
+    {
+      "id": "4ce7",
+      "email": "test@test.com",
+      "password": "1234123"
+    }
+  ],
+  "orders": [
+    {
+      "userId": "dac2",
+      "date": "2023-10-01",
+      "time": "10:00",
+      "groupSize": 5,
+      "favouriteAnimals": "Antarktis",
+      "status": "pending",
+      "id": "a287"
+    },
+    {
+      "userId": "dac2",
+      "date": "2023-10-02",
+      "time": "14:00",
+      "groupSize": 3,
+      "favouriteAnimals": "Aquarium",
+      "status": "approved",
+      "id": "332c"
+    },
+    {
+      "userId": "dac2",
+      "date": "2023-10-03",
+      "time": "09:00",
+      "groupSize": 10,
+      "favouriteAnimals": "Elefantenpark",
+      "status": "denied",
+      "id": "b1fb"
+    },
+    {
+      "id": "a92c",
+      "date": "2025-01-23",
+      "time": "05:16",
+      "groupSize": "69",
+      "favouriteAnimals": "streichelzoo",
+      "status": "pending",
+      "userId": "dac2"
+    }
+  ]
 }

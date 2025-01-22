@@ -44,7 +44,7 @@
                                 type="email"
                                 id="email"
                                 name="email"
-                                class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                                class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 text-black"
                                 required
                             />
                         </div>
@@ -58,7 +58,7 @@
                                 type="password"
                                 id="password"
                                 name="password"
-                                class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                                class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 text-black"
                                 required
                             />
                         </div>
@@ -80,20 +80,6 @@
                     <form method="POST" action="?/register" use:enhance class="space-y-4">
                         <div>
                             <label
-                                for="name"
-                                class="block text-sm font-medium mb-2 text-[#0f172a]"
-                                >Name</label
-                            >
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
-                                required
-                            />
-                        </div>
-                        <div>
-                            <label
                                 for="email"
                                 class="block text-sm font-medium mb-2 text-[#0f172a]"
                                 >Email</label
@@ -102,7 +88,7 @@
                                 type="email"
                                 id="email"
                                 name="email"
-                                class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                                class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 text-black"
                                 required
                             />
                         </div>
@@ -116,7 +102,7 @@
                                 type="password"
                                 id="password"
                                 name="password"
-                                class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+                                class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 text-black"
                                 required
                             />
                         </div>
