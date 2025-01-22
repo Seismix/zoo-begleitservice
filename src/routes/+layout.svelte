@@ -2,6 +2,9 @@
 	import '../app.css';
 	import { fade } from 'svelte/transition';
 	let { children, data } = $props<{ children: any, data: { url: string } }>();
+
+	const loggedInStatus = $derived(data.logged_in === "true");
+	
 </script>
 
 <div class="flex flex-col justify-between min-h-screen">
@@ -17,11 +20,14 @@
 				<span class="self-center text-2xl font-semibold whitespace-nowrap"> Zoo Begleitservice </span>
 			</a>
 			<ul class="flex justify-between gap-12">
+				{#if !loggedInStatus}
 				<li
 					class="hover:scale-125 transform transition duration-500 flex place-items-center border-x-2 border-white px-4"
 				>
 					<a href="/login" class="rounded">Login</a>
 				</li>
+				{/if}
+				{#if loggedInStatus}
 				<li
 					class="hover:scale-125 transform transition duration-500 flex place-items-center border-x-2 border-white px-4"
 				>
@@ -42,8 +48,11 @@
 				<li
 					class="hover:scale-125 transform transition duration-500 flex place-items-center border-x-2 border-white px-4"
 				>
-					<a href="/logout" class="rounded">Logout</a>
+					<form action="/logout" method="post">
+						<button type="submit" class="rounded">Logout</button>
+					</form>
 				</li>
+				{/if}
 			</ul>
 		</div>
 	</div>

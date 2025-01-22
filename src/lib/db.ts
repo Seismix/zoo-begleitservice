@@ -139,3 +139,48 @@ export async function updateOrderStatus(orderId: string, newStatus: string): Pro
         throw error;
     }
 }
+
+export async function getUserByEmail(email: string): Promise<any> {
+    try {
+        const response = await fetch(`http://localhost:3001/users?email=${email}`);
+        if (!response.ok) {
+            throw new Error(`Failed to fetch user by email: ${response.statusText}`);
+        }
+        const data = await response.json()        
+
+        return data[0]; // Return the first user object from the array
+    } catch (error) {
+        console.error("Error fetching user by email:", error);
+        throw error;
+    }
+}
+
+export async function createUser(user: {
+    email: string;
+    password: string;
+}): Promise<any> {
+    try {
+        const response = await fetch("http://localhost:3001/users", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(user),
+        });
+
+        if (!response.ok) {
+            throw new Error(`Failed to create user: ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Error creating user:", error);
+        throw error;
+    }
+}
+
+export async function verifyPassword(user: any, password: string): Promise<boolean> {
+    // Compare the provided password with the user's password
+    return user.password === password;
+}

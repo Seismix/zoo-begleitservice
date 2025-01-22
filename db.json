@@ -6,6 +6,11 @@
       "address": "123 Random St, Anytown, USA",
       "telephone": "666-1234",
       "id": "dac2"
+    },
+    {
+      "id": "4ce7",
+      "email": "test@test.com",
+      "password": "1234123"
     }
   ],
   "orders": [
