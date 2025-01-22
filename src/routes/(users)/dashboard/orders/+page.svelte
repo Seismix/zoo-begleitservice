@@ -1,34 +1,7 @@
 <script lang="ts">
     let { data } = $props();
 
-    console.log(data);
-
     const orders = data.orders;
-
-    // Sample data for demonstration purposes
-    // let orders = [
-    //     {
-    //         date: "2023-10-01",
-    //         time: "10:00",
-    //         groupSize: 5,
-    //         favouriteAnimals: "Savanne",
-    //         status: "pending",
-    //     },
-    //     {
-    //         date: "2023-10-02",
-    //         time: "14:00",
-    //         groupSize: 3,
-    //         favouriteAnimals: "Aquarium",
-    //         status: "approved",
-    //     },
-    //     {
-    //         date: "2023-10-03",
-    //         time: "09:00",
-    //         groupSize: 10,
-    //         favouriteAnimals: "Elefantenpark",
-    //         status: "denied",
-    //     },
-    // ];
 </script>
 
 <div class="h-[calc(100vh-10rem)] gap-4 overflow-auto p-4 rounded-md">

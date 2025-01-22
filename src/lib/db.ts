@@ -103,3 +103,39 @@ export async function updateUserDetails(
         throw error;
     }
 }
+
+export async function updateOrderStatus(orderId: string, newStatus: string): Promise<any> {
+    try {
+        // Fetch the current order details
+        const response = await fetch(`http://localhost:3001/orders/${orderId}`);
+        if (!response.ok) {
+            throw new Error(`Failed to fetch order: ${response.statusText}`);
+        }
+        const order = await response.json();
+
+        // Update only the status
+        const updatedOrder = {
+            ...order,
+            status: newStatus,
+        };
+
+        // Send the updated order details to the server
+        const updateResponse = await fetch(`http://localhost:3001/orders/${orderId}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(updatedOrder),
+        });
+
+        if (!updateResponse.ok) {
+            throw new Error(`Failed to update order status: ${updateResponse.statusText}`);
+        }
+
+        const data = await updateResponse.json();
+        return data;
+    } catch (error) {
+        console.error("Error updating order status:", error);
+        throw error;
+    }
+}

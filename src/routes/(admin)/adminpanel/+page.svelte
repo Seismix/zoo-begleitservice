@@ -1,40 +1,20 @@
 <script lang="ts">
     import type { PageData } from "./$types";
+    import { updateOrderStatus } from "$lib/db";
 
     let { data }: { data: PageData } = $props();
     let activeTab = $state<"pending" | "approved" | "denied" | "all">("pending");
 
-    // Sample data for demonstration purposes
-    let orders = [
-        {
-            date: "2023-10-01",
-            time: "10:00",
-            groupSize: 5,
-            favouriteAnimals: "Savanne",
-            status: "pending",
-            user: "John Doe",
-        },
-        {
-            date: "2023-10-02",
-            time: "14:00",
-            groupSize: 3,
-            favouriteAnimals: "Aquarium",
-            status: "approved",
-            user: "Jane Smith",
-        },
-        {
-            date: "2023-10-03",
-            time: "09:00",
-            groupSize: 10,
-            favouriteAnimals: "Elefantenpark",
-            status: "denied",
-            user: "Alice Johnson",
-        },
-    ];
+    const orders = data.orders;
 
-    function changeStatus(order, newStatus) {
-        order.status = newStatus;
-        activeTab = newStatus;
+    async function changeStatus(order: { id: string; status: string }, newStatus: string) {
+        try {
+            await updateOrderStatus(order.id, newStatus);
+            order.status = newStatus;
+            activeTab = newStatus as "pending" | "approved" | "denied" | "all";
+        } catch (error) {
+            console.error("Failed to update order status:", error);
+        }
     }
 </script>
 
@@ -83,7 +63,6 @@
             <div class="grid grid-cols-1 gap-8">
                 {#each orders.filter((order) => activeTab === "all" || order.status === activeTab) as order}
                     <div class="p-4 border rounded-md">
-                        <p><strong>Benutzer:</strong> {order.user}</p>
                         <p><strong>Datum:</strong> {order.date}</p>
                         <p><strong>Uhrzeit:</strong> {order.time}</p>
                         <p><strong>Gruppengrösse:</strong> {order.groupSize}</p>
