@@ -1,7 +1,5 @@
 <script lang="ts">
-    import type { PageProps } from "./$types";
-
-    let { data, form }: PageProps = $props();
+    let { data, form } = $props();
 </script>
 
 <div class="h-[calc(100vh-10rem)] gap-4 overflow-auto p-4 rounded-md">
@@ -22,7 +20,7 @@
         {#if form?.success}
             <!-- this message is ephemeral; it exists because the page was rendered in
 	       response to a form submission. it will vanish if the user reloads -->
-            <p>Successfully logged in! Welcome back, {data.user.name}</p>
+            <p>Submitted</p>
         {/if}
 
         <div class="container mx-auto text-center">

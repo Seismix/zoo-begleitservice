@@ -14,7 +14,7 @@ export async function fetchOrders(): Promise<any[]> {
 export async function fetchUserById(userId: number): Promise<any> {
     try {
         const response = await fetch(
-            `http://localhost:3001/users?id=${userId}`
+            `http://localhost:3001/users?userId=${userId}`
         );
         if (!response.ok) {
             throw new Error(`Failed to fetch user: ${response.statusText}`);
@@ -82,6 +82,53 @@ export async function createOrder(
         return data;
     } catch (error) {
         console.error("Error creating order:", error);
+        throw error;
+    }
+}
+
+export async function updateUserDetails(
+    userId: number,
+    updatedDetails: {
+        email?: string;
+        telephone?: string;
+        address?: string;
+    }
+): Promise<any> {
+    try {
+        // Fetch the current user details using fetchUserById function
+        const currentUser = await fetchUserById(userId);        
+
+        // Update only the changed values
+        const updatedUser = {
+            ...currentUser,
+            ...updatedDetails,
+        };
+
+        // Send the updated user details to the server
+        const updateResponse = await fetch(
+            `http://localhost:3001/users/${updatedUser.id}`,
+            {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(updatedUser),
+            }
+        );
+
+        if (!updateResponse.ok) {
+            throw new Error(
+                `Failed to update user: ${updateResponse.statusText}`
+            );
+        }
+
+        const updatedData = await updateResponse.json();
+
+        console.log("Updated user details:", updatedData);
+        
+        return updatedData;
+    } catch (error) {
+        console.error("Error updating user details:", error);
         throw error;
     }
 }
