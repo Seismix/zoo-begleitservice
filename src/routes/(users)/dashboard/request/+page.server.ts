@@ -2,8 +2,9 @@ import { createOrder } from "$lib/db";
 import type { Actions } from "./$types";
 
 export const actions = {
-    default: async ({ request }) => {
-        const data = await request.formData();        
+    default: async ({ request, cookies }) => {
+        const data = await request.formData();
+        const user_id = cookies.get("user_id") as string;
 
         // maybe do some form action error handling here
         const date = data.get("date")?.toString() || "";
@@ -13,7 +14,7 @@ export const actions = {
         const status = "pending";
 
 
-        await createOrder("dac2", {
+        await createOrder(user_id, {
             date,
             time,
             groupSize,

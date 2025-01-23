@@ -24,16 +24,21 @@ export const actions: Actions = {
         // Check if the user already exists
         const existingUser = await getUserByEmail(email);
         if (existingUser) {
-            return fail(400, { error: "User already exists.", email, name });
+            return fail(400, { error: "User already exists.", email });
         }
 
         // Create the user in the database
         const newUser = await createUser({ email, password });
 
-        // Set a simple client-side cookie to remember the logged-in status
+        // Set cookies to remember the logged-in status and user ID
         cookies.set("logged_in", "true", {
             path: "/",
             httpOnly: false, // Accessible to client-side JavaScript
+            maxAge: 60 * 60 * 24 * 7, // 1 week
+        });
+        cookies.set("user_id", newUser.id, {
+            path: "/",
+            httpOnly: true, // Not accessible to client-side JavaScript
             maxAge: 60 * 60 * 24 * 7, // 1 week
         });
 
@@ -56,15 +61,31 @@ export const actions: Actions = {
         // Verify user credentials
         const user = await getUserByEmail(email);
         if (!user || !(await verifyPassword(user, password))) {
+            // return { sucess: false };
             return fail(400, { error: "Invalid email or password.", email });
         }
 
-        // Set a simple client-side cookie to remember the logged-in status
+        // Set cookies to remember the logged-in status and user ID
         cookies.set("logged_in", "true", {
             path: "/",
             httpOnly: false, // Accessible to client-side JavaScript
             maxAge: 60 * 60 * 24 * 7, // 1 week
         });
+        cookies.set("user_id", user.id, {
+            path: "/",
+            httpOnly: true, // Not accessible to client-side JavaScript
+            maxAge: 60 * 60 * 24 * 7, // 1 week
+        });
+
+        if (user.admin) {            
+            console.log(user);
+            
+            cookies.set("admin", "true", {
+                path: "/",
+                httpOnly: false, // Accessible to client-side JavaScript
+                maxAge: 60 * 60 * 24 * 7, // 1 week
+            });
+        }
 
         // Redirect to the homepage
         throw redirect(303, "/");
