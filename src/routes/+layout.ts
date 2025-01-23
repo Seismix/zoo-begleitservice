@@ -2,7 +2,8 @@
 export function load({ url, data }) {
 	return {
 		url: url.pathname,
-		logged_in: data.logged_in
+		logged_in: data.logged_in,
+		admin: data.admin
 	};
 }
 

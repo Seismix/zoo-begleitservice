@@ -3,8 +3,9 @@
     import { fade } from "svelte/transition";
     let { children, data } = $props<{
         children: any;
-        data: { url: string; logged_in: boolean };
+        data: { url: string; logged_in: boolean; admin: boolean };
     }>();
+
 </script>
 
 <div class="flex flex-col justify-between min-h-screen">
@@ -46,11 +47,13 @@
                     >
                         <a href="/dashboard" class="rounded">Dashboard</a>
                     </li>
-                    <li
-                        class="hover:scale-125 transform transition duration-500 flex place-items-center border-x-2 border-white px-4"
-                    >
-                        <a href="/adminpanel" class="rounded">Adminpanel</a>
-                    </li>
+                    {#if data.admin}
+                        <li
+                            class="hover:scale-125 transform transition duration-500 flex place-items-center border-x-2 border-white px-4"
+                        >
+                            <a href="/adminpanel" class="rounded">Adminpanel</a>
+                        </li>
+                    {/if}
                     <li
                         class="hover:scale-125 transform transition duration-500 flex place-items-center border-x-2 border-white px-4"
                     >

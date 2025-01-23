@@ -30,10 +30,15 @@ export const actions: Actions = {
         // Create the user in the database
         const newUser = await createUser({ email, password });
 
-        // Set a simple client-side cookie to remember the logged-in status
+        // Set cookies to remember the logged-in status and user ID
         cookies.set("logged_in", "true", {
             path: "/",
             httpOnly: false, // Accessible to client-side JavaScript
+            maxAge: 60 * 60 * 24 * 7, // 1 week
+        });
+        cookies.set("user_id", newUser.id, {
+            path: "/",
+            httpOnly: true, // Not accessible to client-side JavaScript
             maxAge: 60 * 60 * 24 * 7, // 1 week
         });
 
@@ -59,12 +64,27 @@ export const actions: Actions = {
             return fail(400, { error: "Invalid email or password.", email });
         }
 
-        // Set a simple client-side cookie to remember the logged-in status
+        // Set cookies to remember the logged-in status and user ID
         cookies.set("logged_in", "true", {
             path: "/",
             httpOnly: false, // Accessible to client-side JavaScript
             maxAge: 60 * 60 * 24 * 7, // 1 week
         });
+        cookies.set("user_id", user.id, {
+            path: "/",
+            httpOnly: true, // Not accessible to client-side JavaScript
+            maxAge: 60 * 60 * 24 * 7, // 1 week
+        });
+
+        if (user.admin) {            
+            console.log(user);
+            
+            cookies.set("admin", "true", {
+                path: "/",
+                httpOnly: false, // Accessible to client-side JavaScript
+                maxAge: 60 * 60 * 24 * 7, // 1 week
+            });
+        }
 
         // Redirect to the homepage
         throw redirect(303, "/");

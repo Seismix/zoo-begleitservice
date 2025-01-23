@@ -184,3 +184,17 @@ export async function verifyPassword(user: any, password: string): Promise<boole
     // Compare the provided password with the user's password
     return user.password === password;
 }
+
+export async function fetchOrdersByUserId(userId: string): Promise<any[]> {
+    try {
+        const response = await fetch(`http://localhost:3001/orders?userId=${userId}`);
+        if (!response.ok) {
+            throw new Error(`Failed to fetch orders for user ${userId}: ${response.statusText}`);
+        }
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Error fetching orders by user ID:", error);
+        throw error;
+    }
+}
