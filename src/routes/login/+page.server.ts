@@ -24,7 +24,7 @@ export const actions: Actions = {
         // Check if the user already exists
         const existingUser = await getUserByEmail(email);
         if (existingUser) {
-            return fail(400, { error: "User already exists.", email, name });
+            return fail(400, { error: "User already exists.", email });
         }
 
         // Create the user in the database
