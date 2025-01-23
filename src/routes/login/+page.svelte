@@ -1,6 +1,8 @@
 <script lang="ts">
     import { enhance } from "$app/forms";
     let activeTab = $state<"login" | "register">("login");
+    let { form} = $props();
+
 </script>
 
 <div class="flex items-start justify-center min-h-screen p-8 transition-transform duration-300" >
@@ -68,6 +70,9 @@
                         >
                             Login
                         </button>
+                        {#if form?.error}
+                            <p class="text-red-500 text-sm">Password oder Email ungültig</p>
+                        {/if}
                     </form>
                 </div>
             {:else if activeTab === "register"}
@@ -112,6 +117,9 @@
                         >
                             Register
                         </button>
+                        {#if form?.error}
+                            <p class="text-red-500 text-sm">Email wird bereits verwendet</p>
+                        {/if}
                     </form>
                 </div>
             {/if}
