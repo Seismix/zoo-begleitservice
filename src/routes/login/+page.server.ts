@@ -61,6 +61,7 @@ export const actions: Actions = {
         // Verify user credentials
         const user = await getUserByEmail(email);
         if (!user || !(await verifyPassword(user, password))) {
+            // return { sucess: false };
             return fail(400, { error: "Invalid email or password.", email });
         }
 
